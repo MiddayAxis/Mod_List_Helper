@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mod List Helper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Mod List Helper</h1>
+      <div class="header-controls">
+        <div class="theme-switcher">
+          <button id="lightThemeBtn" class="theme-button" title="Light Mode">☀️</button>
+          <button id="darkThemeBtn" class="theme-button" title="Dark Mode">🌓</button>
+          <button id="midnightThemeBtn" class="theme-button" title="Midnight Mode">🌑</button>
+        </div>
+        <div class="header-buttons">
+          <button id="importBtn" class="action-button">Import CSV</button>
+          <button id="exportBtn" class="action-button">Export CSV</button>
+        </div>
+      </div>
+    </header>
+    
+    <div class="add-mod-form">
+      <h2>Add New Mod</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="modName">Mod Name:</label>
+          <input type="text" id="modName" placeholder="Enter mod name">
+        </div>
+        <div class="form-group">
+          <label for="modWebsite">Website Link:</label>
+          <input type="text" id="modWebsite" placeholder="Enter website URL">
+        </div>
+        <div class="form-group">
+          <label for="modDescription">Description:</label>
+          <input type="text" id="modDescription" placeholder="Enter short description">
+        </div>
+        <button id="addModBtn" class="primary-button">Add Mod</button>
+      </div>
+    </div>
+    
+    <div class="mod-list-container">
+      <h2>Your Mod List</h2>
+      <div class="mod-list-header">
+        <div class="mod-name-col">Mod Name</div>
+        <div class="mod-website-col">Website</div>
+        <div class="mod-description-col">Description</div>
+        <div class="mod-actions-col">Actions</div>
+      </div>
+      <div id="modList" class="mod-list">
+        <!-- Mod entries will be inserted here by JavaScript -->
+      </div>
+      
+      <div class="export-options">
+        <span class="export-label">Export as Modpack:</span>
+        <button id="exportCurseForgeBtn" class="platform-button curseforge-button" title="Export as CurseForge modpack">CurseForge</button>
+        <button id="exportModrinthBtn" class="platform-button modrinth-button" title="Export as Modrinth modpack">Modrinth</button>
+      </div>
+    </div>
+    
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Edit Mod</h2>
+        <div class="form-group">
+          <label for="editModName">Mod Name:</label>
+          <input type="text" id="editModName">
+        </div>
+        <div class="form-group">
+          <label for="editModWebsite">Website Link:</label>
+          <input type="text" id="editModWebsite">
+        </div>
+        <div class="form-group">
+          <label for="editModDescription">Description:</label>
+          <input type="text" id="editModDescription">
+        </div>
+        <button id="saveEditBtn" class="primary-button">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+  <script src="custom-tooltip.js"></script>
+  <script src="theme-switcher.js"></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+/* Theme variables */
+:root {
+  /* Light theme (default) */
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --header-color: #2c3e50;
+  --title-color: #3498db;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --primary-button-bg: #3498db;
+  --primary-button-hover: #2980b9;
+  --secondary-button-bg: #7f8c8d;
+  --secondary-button-hover: #95a5a6;
+  --delete-button-bg: #e74c3c;
+  --delete-button-hover: #c0392b;
+  --edit-button-bg: #f39c12;
+  --edit-button-hover: #d35400;
+  --list-header-bg: #f2f2f2;
+  --border-color: #ddd;
+  --link-color: #3498db;
+  --tooltip-bg: #333;
+  --tooltip-color: #fff;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-color: #2c3e50;
+  --text-color: #ecf0f1;
+  --header-color: #ecf0f1;
+  --title-color: #3498db;
+  --card-bg: #34495e;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --primary-button-bg: #3498db;
+  --primary-button-hover: #2980b9;
+  --secondary-button-bg: #7f8c8d;
+  --secondary-button-hover: #95a5a6;
+  --delete-button-bg: #e74c3c;
+  --delete-button-hover: #c0392b;
+  --edit-button-bg: #f39c12;
+  --edit-button-hover: #d35400;
+  --list-header-bg: #2c3e50;
+  --border-color: #4a6278;
+  --link-color: #3498db;
+  --tooltip-bg: #1a1a1a;
+  --tooltip-color: #fff;
+}
+
+/* Midnight theme */
+[data-theme="midnight"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --header-color: #e0e0e0;
+  --title-color: #bb86fc;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --primary-button-bg: #bb86fc;
+  --primary-button-hover: #9966cc;
+  --secondary-button-bg: #4a4a4a;
+  --secondary-button-hover: #5a5a5a;
+  --delete-button-bg: #cf6679;
+  --delete-button-hover: #b55464;
+  --edit-button-bg: #03dac6;
+  --edit-button-hover: #00b3a6;
+  --list-header-bg: #1e1e1e;
+  --border-color: #333333;
+  --link-color: #bb86fc;
+  --tooltip-bg: #000000;
+  --tooltip-color: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+  color: var(--header-color);
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: var(--title-color);
+}
+
+.header-controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-switcher {
+  display: flex;
+  gap: 5px;
+}
+
+.theme-button {
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.theme-button:hover {
+  transform: scale(1.1);
+}
+
+.theme-button.active-theme {
+  border-color: var(--primary-button-bg);
+  box-shadow: 0 0 5px var(--primary-button-bg);
+}
+
+.action-button {
+  background-color: var(--secondary-button-bg);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: var(--secondary-button-hover);
+}
+
+.primary-button {
+  background-color: var(--primary-button-bg);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.primary-button:hover {
+  background-color: var(--primary-button-hover);
+}
+
+.delete-button {
+  background-color: var(--delete-button-bg);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: var(--delete-button-hover);
+}
+
+.edit-button {
+  background-color: var(--edit-button-bg);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 5px;
+}
+
+.edit-button:hover {
+  background-color: var(--edit-button-hover);
+}
+
+.add-mod-form {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px var(--card-shadow);
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.mod-list-container {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px var(--card-shadow);
+}
+
+.mod-list-header {
+  display: flex;
+  font-weight: bold;
+  padding: 10px 15px;
+  background-color: var(--list-header-bg);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.mod-list {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.mod-item {
+  display: flex;
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+  align-items: center;
+}
+
+.mod-item:last-child {
+  border-bottom: none;
+}
+
+.mod-name-col {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mod-website-col {
+  flex: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mod-description-col {
+  flex: 3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Simple text truncation */
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: inline-block;
+  cursor: default;
+}
+
+/* Custom tooltip that follows cursor */
+#custom-tooltip {
+  position: fixed;
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  z-index: 1000;
+  pointer-events: none;
+  max-width: 300px;
+  word-break: break-word;
+  text-align: center;
+  box-shadow: 0 2px 5px var(--card-shadow);
+}
+
+/* Website link styles */
+.website-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.mod-actions-col {
+  width: 120px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.website-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.website-link:hover {
+  text-decoration: underline;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px var(--card-shadow);
+  position: relative;
+  color: var(--text-color);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Export options styling */
+.export-options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+.export-label {
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.platform-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.curseforge-button {
+  background-color: #f16436;
+}
+
+.curseforge-button:hover {
+  background-color: #d14e26;
+}
+
+.modrinth-button {
+  background-color: #1bd96a;
+}
+
+.modrinth-button:hover {
+  background-color: #18b85a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .mod-list-header, .mod-item {
+    font-size: 14px;
+  }
+  
+  .modal-content {
+    width: 90%;
+  }
+}
